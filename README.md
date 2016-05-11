@@ -1,4 +1,4 @@
-# logstash_push
+# Land Registry's log-receiver Install
 
 A puppet module to manage the logstash install for receiving messages
 
