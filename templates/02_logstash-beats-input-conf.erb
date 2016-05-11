@@ -1,0 +1,31 @@
+#  ______________________________________
+# / NOTE: this file is managed by Puppet \
+# \ - do not change it here, ever!       /
+#  --------------------------------------
+#         \   ^__^
+#          \  (OO)\_______
+#             (__)\       )\/\
+#                 ||----w |
+#                 ||     ||
+#
+# ----------------------------------------
+#
+#
+# Logstash - log-receiver input
+#   -  receiving log messages from beats
+#   -  config File <%= @configfile %>
+#   -  this config file lives in <%= @config_dir %>
+#
+#
+input {
+  beats {
+    port => 5044
+    type => "logs"
+    ssl => true
+    ssl_certificate => "<%= @filebeat_cert %>"
+    ssl_key => "<%= @filebeat_key %>"
+  }
+}
+
+
+# vim: set ts=2 sw=2 et :

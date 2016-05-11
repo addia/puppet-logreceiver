@@ -1,0 +1,12 @@
+{
+  "name": "puppet-log-receiver",
+  "version": "0.0.3",
+  "author": "LandRegistry, Addi",
+  "summary": "A puppet module to manage the logstash install for receiving messages and pushing them into a RabbitMQ queue",
+  "license": "MIT",
+  "source": "https://github.com/LandRegistry-Ops/puppet-log-receiver",
+  "project_page": "https://github.com/LandRegistry-Ops/puppet-log-receiver",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.0.0"}
+  ]
+}

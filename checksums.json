@@ -1,0 +1,21 @@
+{
+   "Gemfile": "5e730f294c22694ed9a5ad5b815b915b",
+   "LICENSE.md": "4a6fa1aa967fea7598f3b57069f970bc",
+   "README.md": "a8ebc4c95015fc6775ac680c8d11fb23",
+   "Rakefile": "3044cde52b8cd8508c8400076a66ef11",
+   "Vagrantfile": "d6a2a8baa7d550e9318f9f030dd43310",
+   "manifests/accounts.pp": "be9527a8c355464bc2f87a9af8481839",
+   "manifests/config.pp": "aad0c80c6cdf40510154aa3131b2aca4",
+   "manifests/init.pp": "fc3d91b82e3141a94e8207be71ae01e5",
+   "manifests/install.pp": "7231c92f551dca8798a6fb36a57bd78a",
+   "manifests/params.pp": "eb852f97248da339f0f462f54ce7be58",
+   "manifests/repo.pp": "e58f25e26c2b463214edff060db38301",
+   "manifests/service.pp": "03b49d41e55dca12fe8e8ca57de926a2",
+   "spec/classes/init_spec.rb": "fed368c904b707aa69d5423e5524b20f",
+   "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+   "templates/02_logstash-beats-input-conf.erb": "1b3c7be833e36a673f56d79ea212e9c1",
+   "templates/31_logstash-mq-output-conf.erb": "ea8ed521fbdccbed3b0b1667eac1b97c",
+   "templates/log-receiver.service.erb": "f26a15b4e03e84ac3eb21c83bca6eabf",
+   "tests/init.pp": "7e5aff683130f2e646a2ff24ea1b5755",
+   "metadata.json": "d79d8d281296dcb0d884f5fabec908a0"
+}
