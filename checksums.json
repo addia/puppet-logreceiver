@@ -1,7 +1,6 @@
 {
    "Gemfile": "5e730f294c22694ed9a5ad5b815b915b",
    "LICENSE.md": "4a6fa1aa967fea7598f3b57069f970bc",
-   "README.md": "a8ebc4c95015fc6775ac680c8d11fb23",
    "Rakefile": "3044cde52b8cd8508c8400076a66ef11",
    "Vagrantfile": "d6a2a8baa7d550e9318f9f030dd43310",
    "manifests/accounts.pp": "be9527a8c355464bc2f87a9af8481839",
@@ -17,5 +16,6 @@
    "templates/31_logstash-mq-output-conf.erb": "ea8ed521fbdccbed3b0b1667eac1b97c",
    "templates/log-receiver.service.erb": "f26a15b4e03e84ac3eb21c83bca6eabf",
    "tests/init.pp": "7e5aff683130f2e646a2ff24ea1b5755",
-   "metadata.json": "d79d8d281296dcb0d884f5fabec908a0"
+   "metadata.json": "d79d8d281296dcb0d884f5fabec908a0",
+   "README.md": "9e45b3aba56ec2ff6217a23ccbb4c32b"
 }
