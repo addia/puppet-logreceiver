@@ -1,4 +1,4 @@
-# == Class log-receiver::service
+# == Class logreceiver::service
 # ==============================
 #
 #
@@ -9,11 +9,11 @@
 #
 # ===========================
 #
-class log-receiver::service (
-  $systemd_file       = $log-receiver::params::systemd_file,
-  $service            = $log-receiver::params::service,
-  $package_name       = $log-receiver::params::package_name
-  ) inherits log-receiver::params {
+class logreceiver::service (
+  $systemd_file       = $logreceiver::params::systemd_file,
+  $service            = $logreceiver::params::service,
+  $package_name       = $logreceiver::params::package_name
+  ) inherits logreceiver::params {
   
   notify { "Configuring service: ${package_name}": }
 

@@ -1,4 +1,4 @@
-# == Class log-receiver::install
+# == Class logreceiver::install
 # ===========================
 #
 #
@@ -9,12 +9,12 @@
 #
 # ===========================
 #
-class log-receiver::install (
-  $ensure             = $log-receiver::params::ensure,
-  $package_name       = $log-receiver::params::package_name
-  ) inherits log-receiver::params {
+class logreceiver::install (
+  $ensure             = $logreceiver::params::ensure,
+  $package_name       = $logreceiver::params::package_name
+  ) inherits logreceiver::params {
 
-  include log-receiver::repo
+  include logreceiver::repo
 
   notify { "Installing package: ${package_name}": }
 

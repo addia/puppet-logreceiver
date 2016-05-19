@@ -14,7 +14,7 @@
    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
    "templates/02_logstash-beats-input-conf.erb": "1b3c7be833e36a673f56d79ea212e9c1",
    "templates/31_logstash-mq-output-conf.erb": "ea8ed521fbdccbed3b0b1667eac1b97c",
-   "templates/log-receiver.service.erb": "f26a15b4e03e84ac3eb21c83bca6eabf",
+   "templates/logreceiver.service.erb": "f26a15b4e03e84ac3eb21c83bca6eabf",
    "tests/init.pp": "7e5aff683130f2e646a2ff24ea1b5755",
    "metadata.json": "d79d8d281296dcb0d884f5fabec908a0",
    "README.md": "9e45b3aba56ec2ff6217a23ccbb4c32b"

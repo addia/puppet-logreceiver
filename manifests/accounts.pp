@@ -1,4 +1,4 @@
-# == Class log-receiver::accounts
+# == Class logreceiver::accounts
 # ===========================
 #
 #
@@ -9,11 +9,11 @@
 #
 # ===========================
 #
-class log-receiver::accounts (
-  $user               = $log-receiver::params::user,
-  $group              = $log-receiver::params::group,
-  $package_name       = $log-receiver::params::package_name
-  ) inherits log-receiver::params {
+class logreceiver::accounts (
+  $user               = $logreceiver::params::user,
+  $group              = $logreceiver::params::group,
+  $package_name       = $logreceiver::params::package_name
+  ) inherits logreceiver::params {
 
   notify { "Creating accounts for: ${package_name}": }
 

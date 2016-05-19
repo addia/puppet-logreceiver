@@ -1,4 +1,4 @@
-# == Class log-receiver::config
+# == Class logreceiver::config
 # =============================
 #
 #
@@ -9,19 +9,19 @@
 #
 # ===========================
 #
-class log-receiver::config (
-  $user               = $log-receiver::params::user,
-  $group              = $log-receiver::params::group,
-  $config_dir         = $log-receiver::params::config_dir,
-  $ssl_dir            = $log-receiver::params::ssl_dir,
-  $ssl_key            = $log-receiver::params::ssl_key,
-  $ssl_cert           = $log-receiver::params::ssl_cert,
-  $rabbit_key         = $log-receiver::params::rabbit_key,
-  $rabbit_crt         = $log-receiver::params::rabbit_crt,
-  $service            = $log-receiver::params::service,
-  $rabbit_address     = $log-receiver::params::rabbit_address,
-  $package_name       = $log-receiver::params::package_name
-  ) inherits log-receiver::params {
+class logreceiver::config (
+  $user               = $logreceiver::params::user,
+  $group              = $logreceiver::params::group,
+  $config_dir         = $logreceiver::params::config_dir,
+  $ssl_dir            = $logreceiver::params::ssl_dir,
+  $ssl_key            = $logreceiver::params::ssl_key,
+  $ssl_cert           = $logreceiver::params::ssl_cert,
+  $rabbit_key         = $logreceiver::params::rabbit_key,
+  $rabbit_crt         = $logreceiver::params::rabbit_crt,
+  $service            = $logreceiver::params::service,
+  $rabbit_address     = $logreceiver::params::rabbit_address,
+  $package_name       = $logreceiver::params::package_name
+  ) inherits logreceiver::params {
 
   notify { "Creating config files for: ${package_name}": }
 
@@ -51,7 +51,7 @@ class log-receiver::config (
     owner             => $user,
     group             => $group,
     mode              => '0644',
-    content           => template('log-receiver/02_logstash-beats-input-conf.erb'),
+    content           => template('logreceiver/02_logstash-beats-input-conf.erb'),
     notify            => Service[$service]
   }
 
@@ -60,7 +60,7 @@ class log-receiver::config (
     owner             => $user,
     group             => $group,
     mode              => '0644',
-    content           => template('log-receiver/31_logstash-mq-output-conf.erb'),
+    content           => template('logreceiver/31_logstash-mq-output-conf.erb'),
     notify            => Service[$service]
   }
 

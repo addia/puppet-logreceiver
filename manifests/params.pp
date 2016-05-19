@@ -1,4 +1,4 @@
-# == Class log-receiver::params
+# == Class logreceiver::params
 # =============================
 #
 #
@@ -9,7 +9,7 @@
 #
 # ===========================
 #
-class log-receiver::params {
+class logreceiver::params {
 
   $ensure           = 'present'
   $status           = 'enabled'
@@ -21,7 +21,7 @@ class log-receiver::params {
   $ssl_cert         = 'filebeat.crt'
   $rabbit_key       = 'rabbitmq-client.key'
   $rabbit_crt       = 'rabbitmq-client.crt'
-  $service          = 'log-receiver.service'
+  $service          = 'logreceiver.service'
   $systemd_file     = "/usr/lib/systemd/system/${service}"
   $rabbit_address   = hiera('elk_stack_rabbitmq_address')
   $package_name     = 'logstash'

@@ -1,4 +1,4 @@
-# == Class log-receiver::repo
+# == Class logreceiver::repo
 # ===========================
 #
 #
@@ -9,11 +9,11 @@
 #
 # ===========================
 #
-class log-receiver::repo (
-  $package_name       = $log-receiver::params::package_name,
-  $repo_version       = $log-receiver::params::repo_version
+class logreceiver::repo (
+  $package_name       = $logreceiver::params::package_name,
+  $repo_version       = $logreceiver::params::repo_version
 
-  ) inherits log-receiver::params {
+  ) inherits logreceiver::params {
 
   notify { "Creating repo for: ${package_name}": }
 
