@@ -22,7 +22,7 @@ class logreceiver::service (
     owner             => 'root',
     group             => 'root',
     mode              => '0644',
-    content           => template("${service}.erb"),
+    content           => template('logreceiver/logreceiver_service.erb'),
     notify            => Service[$service]
   }
 
