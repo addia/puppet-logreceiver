@@ -22,17 +22,18 @@ output {
     exchange => "logstash"
     # queue => "log-item"
     host => "<%= @rabbit_address %>"
-    exchange_type => "direct"
-    key => "logstash-key"
+    vhost => "lr-hare"
+    exchange_type => "topic"
+    key => "<%= @passkey %>"
     user => "logstash"
-    password => "logstash1"
+    password => "<%= @password %>"
     durable => true
     persistent => true
     ssl => true
     port => 5671
-    verify_ssl => false
-    # ssl_certificate => "<%= @rabbitmq_cert %>"
-    # ssl_key => "<%= @rabbitmq_key %>"
+    verify_ssl => true
+    ssl_certificate => "<%= @rabbitmq_crt %>"
+    ssl_key => "<%= @rabbitmq_key %>"
   }
 }
 

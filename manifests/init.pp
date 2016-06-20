@@ -15,12 +15,14 @@
 #     status          = default service state
 #     user            = run as user
 #     group           = run as group
+#     password        = logstash password
+#     passkey         = logstash keypass
 #     config_dir      = prospector plug-in directory path
 #     ssl_dir         = certificate path
 #     ssl_key         = certificate key file
 #     ssl_cert        = certificate file
 #     rabbit_key      = rabbitmq-client certificate key file
-#     rabbit_cert     = rabbitmq-client certificate file
+#     rabbit_crt      = rabbitmq-client certificate file
 #     service         = systemd service file name
 #     systemd_file    = systemd service file including full path
 #     rabbit_address  = rabbitmq server/cluster address IP or DNS
@@ -48,6 +50,8 @@ class logreceiver (
   $status             = $logreceiver::params::status,
   $user               = $logreceiver::params::user,
   $group              = $logreceiver::params::group,
+  $password           = $logreceiver::params::password,
+  $passkey            = $logreceiver::params::passkey,
   $config_dir         = $logreceiver::params::config_dir,
   $ssl_dir            = $logreceiver::params::ssl_dir,
   $ssl_key            = $logreceiver::params::ssl_key,

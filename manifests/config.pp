@@ -12,6 +12,8 @@
 class logreceiver::config (
   $user               = $logreceiver::params::user,
   $group              = $logreceiver::params::group,
+  $password           = $logreceiver::params::password,
+  $passkey            = $logreceiver::params::passkey,
   $config_dir         = $logreceiver::params::config_dir,
   $ssl_dir            = $logreceiver::params::ssl_dir,
   $ssl_key            = $logreceiver::params::ssl_key,
@@ -27,7 +29,7 @@ class logreceiver::config (
 
   $config_input       = "$config_dir/02_logstash-beats-input.conf"
   $config_output      = "$config_dir/31_logstash-mq-output.conf"
-  $rabbitmq_cert      = "$ssl_dir/$rabbit_cert"
+  $rabbitmq_crt       = "$ssl_dir/$rabbit_crt"
   $rabbitmq_key       = "$ssl_dir/$rabbit_key"
   $filebeat_cert      = "$ssl_dir/$ssl_cert"
   $filebeat_key       = "$ssl_dir/$ssl_key"

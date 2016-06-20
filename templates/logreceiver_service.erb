@@ -22,7 +22,7 @@ After=network.target
 Type=simple
 User=<%= @user %>
 Group=<%= @group %>
-PIDFile=/run/logstash.pid
+PIDFile=/run/logstash/pid
 
 ExecStart=/opt/logstash/bin/logstash agent -f <%= @config_dir %>
 ExecReload=/bin/kill -HUP $MAINPID

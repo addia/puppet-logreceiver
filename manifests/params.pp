@@ -15,6 +15,8 @@ class logreceiver::params {
   $status           = 'enabled'
   $user             = 'logstash'
   $group            = 'logstash'
+  $password         = hiera('elk_stack_logstash_passwd')
+  $passkey          = hiera('elk_stack_logstash_key')
   $config_dir       = '/etc/logstash/conf.d/'
   $ssl_dir          = '/etc/logstash/ssl'
   $ssl_key          = 'filebeat.key'
