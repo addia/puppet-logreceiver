@@ -27,6 +27,7 @@
 #     systemd_file    = systemd service file including full path
 #     rabbit_address  = rabbitmq server/cluster address IP or DNS
 #     package_name    = the package name to install and configure
+#     package_vers    = the package version to install and configure
 #     repo_version    = the elastic search repo version
 #
 #
@@ -62,6 +63,7 @@ class logreceiver (
   $systemd_file       = $logreceiver::params::systemd_file,
   $rabbit_address     = $logreceiver::params::rabbit_address,
   $package_name       = $logreceiver::params::package_name,
+  $package_vers       = $logreceiver::params::package_vers,
   $repo_version       = $logreceiver::params::repo_version
 
   ) inherits logreceiver::params {

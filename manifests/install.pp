@@ -11,7 +11,8 @@
 #
 class logreceiver::install (
   $ensure             = $logreceiver::params::ensure,
-  $package_name       = $logreceiver::params::package_name
+  $package_name       = $logreceiver::params::package_name,
+  $package_vers       = $logreceiver::params::package_vers
   ) inherits logreceiver::params {
 
   include logreceiver::repo
@@ -22,7 +23,7 @@ class logreceiver::install (
     ensure            => present,
   }
   package { $package_name:
-    ensure            => $ensure
+    ensure            => $package_vers,
   }
 }
 

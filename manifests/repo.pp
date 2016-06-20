@@ -11,6 +11,7 @@
 #
 class logreceiver::repo (
   $package_name       = $logreceiver::params::package_name,
+  $package_vers       = $logreceiver::params::package_vers,
   $repo_version       = $logreceiver::params::repo_version
 
   ) inherits logreceiver::params {
