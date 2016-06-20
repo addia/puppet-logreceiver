@@ -27,7 +27,7 @@ class logreceiver::params {
   $systemd_file     = "/usr/lib/systemd/system/${service}"
   $rabbit_address   = hiera('elk_stack_rabbitmq_address')
   $package_name     = 'logstash'
-  $repo_version     = '2.2'
+  $repo_version     = '2.3'
 
 }
 
