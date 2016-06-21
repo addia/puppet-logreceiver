@@ -19,18 +19,17 @@
 #
 output {
   rabbitmq {
-    exchange => "logstash"
-    # queue => "log-item"
     host => "<%= @rabbit_address %>"
+    port => 5671
     vhost => "lr-hare"
+    exchange => "logstash"
     exchange_type => "topic"
+    durable => true
+    persistent => true
     key => "<%= @passkey %>"
     user => "logstash"
     password => "<%= @password %>"
-    durable => true
-    persistent => true
     ssl => true
-    port => 5671
     verify_ssl => true
     ssl_cert => "<%= @rabbitmq_crt %>"
     ssl_key => "<%= @rabbitmq_key %>"
