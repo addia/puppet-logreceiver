@@ -21,6 +21,7 @@
 #     ssl_dir         = certificate path
 #     rabbit_key      = rabbitmq-client certificate key file
 #     rabbit_crt      = rabbitmq-client certificate file
+#     rabbit_p12      = rabbitmq-client p12 file
 #     filebeat_key    = filebeat key file path
 #     filebeat_crt    = filebeat cert file path
 #     service         = systemd service file name
@@ -57,6 +58,7 @@ class logreceiver (
   $ssl_dir            = $logreceiver::params::ssl_dir,
   $rabbit_key         = $logreceiver::params::rabbit_key,
   $rabbit_crt         = $logreceiver::params::rabbit_crt,
+  $rabbit_p12         = $logreceiver::params::rabbit_p12,
   $filebeat_key       = $logreceiver::params::filebeat_key,
   $filebeat_crt       = $logreceiver::params::filebeat_crt,
   $service            = $logreceiver::params::service,

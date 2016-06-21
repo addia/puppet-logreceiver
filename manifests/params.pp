@@ -21,6 +21,7 @@ class logreceiver::params {
   $ssl_dir          = '/etc/logstash/ssl'
   $rabbit_key       = 'rabbitmq-client.key'
   $rabbit_crt       = 'rabbitmq-client.crt'
+  $rabbit_p12       = 'rabbitmq-client.p12'
   $filebeat_key     = '/etc/filebeat/ssl/filebeat.key'
   $filebeat_crt     = '/etc/filebeat/ssl/filebeat.crt'
   $service          = 'logreceiver.service'

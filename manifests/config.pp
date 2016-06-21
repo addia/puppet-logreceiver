@@ -18,6 +18,7 @@ class logreceiver::config (
   $ssl_dir            = $logreceiver::params::ssl_dir,
   $rabbit_key         = $logreceiver::params::rabbit_key,
   $rabbit_crt         = $logreceiver::params::rabbit_crt,
+  $rabbit_p12         = $logreceiver::params::rabbit_p12,
   $filebeat_key       = $logreceiver::params::filebeat_key,
   $filebeat_crt       = $logreceiver::params::filebeat_crt,
   $service            = $logreceiver::params::service,
