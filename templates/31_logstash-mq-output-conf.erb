@@ -30,7 +30,7 @@ output {
     user => "logstash"
     password => "<%= @password %>"
     ssl => true
-    ssl_certificate_path => "<%= @ssl_dir %>"
+    ssl_certificate_path => "<%= @ssl_dir %>/"
     ssl_certificate_password => ""
   }
 }
