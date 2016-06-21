@@ -22,7 +22,7 @@ input {
     port => 5044
     type => "logs"
     ssl => true
-    ssl_certificate => "<%= @filebeat_cert %>"
+    ssl_certificate => "<%= @filebeat_crt %>"
     ssl_key => "<%= @filebeat_key %>"
   }
 }

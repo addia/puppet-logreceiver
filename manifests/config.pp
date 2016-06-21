@@ -16,10 +16,10 @@ class logreceiver::config (
   $passkey            = $logreceiver::params::passkey,
   $config_dir         = $logreceiver::params::config_dir,
   $ssl_dir            = $logreceiver::params::ssl_dir,
-  $ssl_key            = $logreceiver::params::ssl_key,
-  $ssl_cert           = $logreceiver::params::ssl_cert,
   $rabbit_key         = $logreceiver::params::rabbit_key,
   $rabbit_crt         = $logreceiver::params::rabbit_crt,
+  $filebeat_key       = $logreceiver::params::filebeat_key,
+  $filebeat_crt       = $logreceiver::params::filebeat_crt,
   $service            = $logreceiver::params::service,
   $rabbit_address     = $logreceiver::params::rabbit_address,
   $package_name       = $logreceiver::params::package_name
@@ -31,8 +31,6 @@ class logreceiver::config (
   $config_output      = "$config_dir/31_logstash-mq-output.conf"
   $rabbitmq_crt       = "$ssl_dir/$rabbit_crt"
   $rabbitmq_key       = "$ssl_dir/$rabbit_key"
-  $filebeat_cert      = "$ssl_dir/$ssl_cert"
-  $filebeat_key       = "$ssl_dir/$ssl_key"
 
   file { $config_dir:
     ensure            => directory,
@@ -64,22 +62,6 @@ class logreceiver::config (
     mode              => '0644',
     content           => template('logreceiver/31_logstash-mq-output-conf.erb'),
     notify            => Service[$service]
-  }
-
-  file { "$ssl_dir/$ssl_key":
-    ensure            => file,
-    owner             => $user,
-    group             => $group,
-    mode              => '0644',
-    content           => hiera('elk_stack_filebeat_key')
-  }
-
-  file { "$ssl_dir/$ssl_cert":
-    ensure            => file,
-    owner             => $user,
-    group             => $group,
-    mode              => '0644',
-    content           => hiera('elk_stack_filebeat_cert')
   }
 
   file { "$ssl_dir/$rabbit_key":

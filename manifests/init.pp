@@ -19,10 +19,10 @@
 #     passkey         = logstash keypass
 #     config_dir      = prospector plug-in directory path
 #     ssl_dir         = certificate path
-#     ssl_key         = certificate key file
-#     ssl_cert        = certificate file
 #     rabbit_key      = rabbitmq-client certificate key file
 #     rabbit_crt      = rabbitmq-client certificate file
+#     filebeat_key    = filebeat key file path
+#     filebeat_crt    = filebeat cert file path
 #     service         = systemd service file name
 #     systemd_file    = systemd service file including full path
 #     rabbit_address  = rabbitmq server/cluster address IP or DNS
@@ -55,10 +55,10 @@ class logreceiver (
   $passkey            = $logreceiver::params::passkey,
   $config_dir         = $logreceiver::params::config_dir,
   $ssl_dir            = $logreceiver::params::ssl_dir,
-  $ssl_key            = $logreceiver::params::ssl_key,
-  $ssl_cert           = $logreceiver::params::ssl_cert,
   $rabbit_key         = $logreceiver::params::rabbit_key,
   $rabbit_crt         = $logreceiver::params::rabbit_crt,
+  $filebeat_key       = $logreceiver::params::filebeat_key,
+  $filebeat_crt       = $logreceiver::params::filebeat_crt,
   $service            = $logreceiver::params::service,
   $systemd_file       = $logreceiver::params::systemd_file,
   $rabbit_address     = $logreceiver::params::rabbit_address,

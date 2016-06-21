@@ -19,10 +19,10 @@ class logreceiver::params {
   $passkey          = hiera('elk_stack_logstash_key')
   $config_dir       = '/etc/logstash/conf.d/'
   $ssl_dir          = '/etc/logstash/ssl'
-  $ssl_key          = 'filebeat.key'
-  $ssl_cert         = 'filebeat.crt'
   $rabbit_key       = 'rabbitmq-client.key'
   $rabbit_crt       = 'rabbitmq-client.crt'
+  $filebeat_key     = '/etc/filebeat/ssl/filebeat.key'
+  $filebeat_crt     = '/etc/filebeat/ssl/filebeat.crt'
   $service          = 'logreceiver.service'
   $systemd_file     = "/usr/lib/systemd/system/${service}"
   $rabbit_address   = hiera('elk_stack_rabbitmq_address')
