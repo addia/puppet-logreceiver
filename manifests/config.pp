@@ -81,6 +81,15 @@ class logreceiver::config (
     content           => hiera('elk_stack_rabbitmq_client_cert')
   }
 
+  openssl::export::pkcs12 { $rabbit_p12:
+    ensure            => 'present',
+    basedir           => $ssl_dir,
+    pkey              => "$ssl_dir/$rabbit_key",
+    cert              => "$ssl_dir/$rabbit_crt",
+    in_pass           => "",
+    out_pass          => "",
+  }
+
 }
 
 
