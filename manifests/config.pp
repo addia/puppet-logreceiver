@@ -24,7 +24,7 @@ class logreceiver::config (
   $service            = $logreceiver::params::service,
   $rabbit_address     = $logreceiver::params::rabbit_address,
   $package_name       = $logreceiver::params::package_name
-  ) inherits logreceiver::params {
+) inherits logreceiver::params {
 
   notify { "Creating config files for: ${package_name}": }
 
@@ -38,14 +38,14 @@ class logreceiver::config (
     owner             => $user,
     group             => $group,
     mode              => '0755'
-  }
+    }
 
   file { $ssl_dir:
     ensure            => directory,
     owner             => $user,
     group             => $group,
     mode              => '0755'
-  }
+    }
 
   file { $config_input: 
     ensure            => file,
@@ -54,7 +54,7 @@ class logreceiver::config (
     mode              => '0644',
     content           => template('logreceiver/02_logstash-beats-input-conf.erb'),
     notify            => Service[$service]
-  }
+    }
 
   file { $config_output: 
     ensure            => file,
@@ -63,7 +63,7 @@ class logreceiver::config (
     mode              => '0644',
     content           => template('logreceiver/31_logstash-mq-output-conf.erb'),
     notify            => Service[$service]
-  }
+    }
 
   file { "$ssl_dir/$rabbit_key":
     ensure            => file,
@@ -71,7 +71,7 @@ class logreceiver::config (
     group             => $group,
     mode              => '0644',
     content           => hiera('elk_stack_rabbitmq_client_key')
-  }
+    }
 
   file { "$ssl_dir/$rabbit_crt":
     ensure            => file,
@@ -79,7 +79,7 @@ class logreceiver::config (
     group             => $group,
     mode              => '0644',
     content           => hiera('elk_stack_rabbitmq_client_cert')
-  }
+    }
 
   openssl::export::pkcs12 { 'rabbitmq-client':
     ensure            => 'present',
@@ -88,9 +88,9 @@ class logreceiver::config (
     cert              => "$ssl_dir/$rabbit_crt",
     in_pass           => "",
     out_pass          => "",
-  }
+    }
 
-}
+  }
 
 
 # vim: set ts=2 sw=2 et :

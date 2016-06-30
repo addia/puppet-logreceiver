@@ -13,8 +13,7 @@ class logreceiver::repo (
   $package_name       = $logreceiver::params::package_name,
   $package_vers       = $logreceiver::params::package_vers,
   $repo_version       = $logreceiver::params::repo_version
-
-  ) inherits logreceiver::params {
+) inherits logreceiver::params {
 
   notify { "Creating repo for: ${package_name}": }
 
@@ -22,7 +21,8 @@ class logreceiver::repo (
     'RedHat': {
       package { 'epel-release':
         ensure        => 'present',
-      }
+        }
+
       yumrepo { 'logstash':
         ensure        => 'present',
         descr         => 'Elastic Logstash Repository',
@@ -30,8 +30,9 @@ class logreceiver::repo (
         gpgcheck      => 1,
         gpgkey        => 'https://packages.elastic.co/GPG-KEY-elasticsearch',
         enabled       => 1,
+        }
       }
-    }
+
     'Debian': {
       apt::source { 'logstash':
         location      => "https://packages.elastic.co/logstash/${repo_version}/debian",
@@ -39,19 +40,19 @@ class logreceiver::repo (
         repos         => 'main',
         key           => 'D88E42B4',
         key_source    => 'https://packages.elasticsearch.org/GPG-KEY-elasticsearch',
+        }
       }
-    }
 
     'Archlinux': {
       fail("\"${::osfamily}\" the \"${logstash_pkg}\" is provided via the AUR repository.")
-    }
+      }
       
     default: {
       fail("\"${logstash_pkg}\" provides no repository information for OSfamily \"${::osfamily}\"")
+      }
     }
-  }
 
-}
+  }
 
 
 # vim: set ts=2 sw=2 et :

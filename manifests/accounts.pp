@@ -1,5 +1,5 @@
 # == Class logreceiver::accounts
-# ===========================
+# ==============================
 #
 #
 # Description of the Class:
@@ -30,9 +30,9 @@ class logreceiver::accounts (
     gid        => '252',
     password   => '!',
     managehome => true,
-  }
+    }
 
-}
+  }
 
 
 # vim: set ts=2 sw=2 et :

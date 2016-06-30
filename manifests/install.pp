@@ -1,5 +1,5 @@
 # == Class logreceiver::install
-# ===========================
+# ==============================
 #
 #
 # Description of the Class:
@@ -13,7 +13,7 @@ class logreceiver::install (
   $ensure             = $logreceiver::params::ensure,
   $package_name       = $logreceiver::params::package_name,
   $package_vers       = $logreceiver::params::package_vers
-  ) inherits logreceiver::params {
+) inherits logreceiver::params {
 
   include logreceiver::repo
 
@@ -21,11 +21,12 @@ class logreceiver::install (
 
   package { ['java-1.8.0-openjdk', 'java-1.8.0-openjdk-devel'] :
     ensure            => present,
-  }
+    }
+
   package { $package_name:
     ensure            => $package_vers,
+    }
   }
-}
 
 
 # vim: set ts=2 sw=2 et :
