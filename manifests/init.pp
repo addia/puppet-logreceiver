@@ -11,8 +11,6 @@
 # Document all Parameters:
 #
 #   Explanation of what this parameter affects and what it defaults to.
-#     ensure          = package install status
-#     status          = default service state
 #     user            = run as user
 #     group           = run as group
 #     password        = logstash password
@@ -48,8 +46,6 @@
 #
 #
 class logreceiver (
-  $ensure             = $logreceiver::params::ensure,
-  $status             = $logreceiver::params::status,
   $user               = $logreceiver::params::user,
   $group              = $logreceiver::params::group,
   $password           = $logreceiver::params::password,

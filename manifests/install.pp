@@ -10,7 +10,6 @@
 # ===========================
 #
 class logreceiver::install (
-  $ensure             = $logreceiver::params::ensure,
   $package_name       = $logreceiver::params::package_name,
   $package_vers       = $logreceiver::params::package_vers
 ) inherits logreceiver::params {

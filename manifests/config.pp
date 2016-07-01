@@ -30,8 +30,6 @@ class logreceiver::config (
 
   $config_input       = "$config_dir/02_logstash-beats-input.conf"
   $config_output      = "$config_dir/31_logstash-mq-output.conf"
-  $rabbitmq_crt       = "$ssl_dir/$rabbit_crt"
-  $rabbitmq_key       = "$ssl_dir/$rabbit_key"
 
   file { $config_dir:
     ensure            => directory,
