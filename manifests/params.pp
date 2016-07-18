@@ -28,7 +28,7 @@ class logreceiver::params {
   $filebeat_key            = '/etc/filebeat/ssl/filebeat.key'
   $filebeat_crt            = '/etc/filebeat/ssl/filebeat.crt'
   $service                 = 'logreceiver.service'
-  $configure_origin        = hiera('elk_stack_rabbitmq_origini_conf')
+  $configure_origin        = hiera('elk_stack_rabbitmq_origin_conf')
   $systemd_file            = "/usr/lib/systemd/system/${service}"
   $rabbit_address          = hiera('elk_stack_rabbitmq_address')
   $rabbit_origin           = hiera('elk_stack_rabbitmq_origin')
