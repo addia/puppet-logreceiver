@@ -1,0 +1,40 @@
+#  ______________________________________
+# / NOTE: this file is managed by Puppet \
+# \ - do not change it here, ever!       /
+#  --------------------------------------
+#         \   ^__^
+#          \  (OO)\_______
+#             (__)\       )\/\
+#                 ||----w |
+#                 ||     ||
+#
+# ----------------------------------------
+#
+#
+# Logstash - log-consumer input
+#   -  Pulling from RabbitMQ
+#   -  this config File  <%= @configfile %>
+#   -  this config file lives in <%= @config_dir %>
+#
+#
+input {
+  rabbitmq {
+    host => "<%= @rabbit_origin %>"
+    port => 5671
+    vhost => "lr-hare"
+    exchange => "logstash"
+    queue => "log-item"
+    exchange_type => "topic"
+    durable => "true"
+    prefetch_count => 1
+    key => "<%= @passkey_origin %>"
+    user => "logstash"
+    password => "<%= @password_origin %>"
+    ssl => true
+    ssl_certificate_path => "<%= @ssl_dir %>/<%= @rabbit_origin_p12 %>"
+    ssl_certificate_password => ""
+  }
+}
+
+
+# vim: set ts=2 sw=2 et :
