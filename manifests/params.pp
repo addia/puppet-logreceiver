@@ -16,7 +16,7 @@ class logreceiver::params {
   $password                = hiera('elk_stack_logstash_passwd')
   $password_origin         = hiera('elk_stack_rabbitmq_origin_passwd')
   $passkey                 = hiera('elk_stack_logstash_key')
-  $passkey_origin          = hiera('elk_stack_rabbitmq_origin_key')
+  $passkey_origin          = hiera('elk_stack_rabbitmq_origin_passkey')
   $config_dir              = '/etc/logstash/conf.d/'
   $ssl_dir                 = '/etc/logstash/ssl'
   $rabbit_key              = 'rabbitmq-client.key'
