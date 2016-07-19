@@ -40,7 +40,7 @@ class logreceiver::config (
     $config_temp             = "logreceiver/04_logstash-mq-transport-conf.erb"
     } else {
     $config_input            = "$config_dir/02_logstash-beats-input.conf"
-    $config_temp             = "logreceiver/02_logstash-beats-input-conf.erb'"
+    $config_temp             = "logreceiver/02_logstash-beats-input-conf.erb"
     }
   $config_output             = "$config_dir/31_logstash-mq-output.conf"
 
