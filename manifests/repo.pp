@@ -19,10 +19,6 @@ class logreceiver::repo (
 
   case $::osfamily {
     'RedHat': {
-      package { 'epel-release':
-        ensure        => 'present',
-        }
-
       yumrepo { 'logstash':
         ensure        => 'present',
         descr         => 'Elastic Logstash Repository',
