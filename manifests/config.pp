@@ -58,21 +58,21 @@ class logreceiver::config (
     mode                     => '0755'
     }
 
-  file { $config_input:
-    ensure                   => file,
-    owner                    => $user,
-    group                    => $group,
-    mode                     => '0644',
-    content                  => template($config_temp),
-    notify                   => Service[$service]
-    }
-
   file { $config_output: 
     ensure                   => file,
     owner                    => $user,
     group                    => $group,
     mode                     => '0644',
     content                  => template('logreceiver/31_logstash-mq-output-conf.erb'),
+    notify                   => Service[$service]
+    }
+
+  file { $config_input:
+    ensure                   => file,
+    owner                    => $user,
+    group                    => $group,
+    mode                     => '0644',
+    content                  => template($config_temp),
     notify                   => Service[$service]
     }
 
@@ -92,15 +92,6 @@ class logreceiver::config (
     content                  => hiera('elk_stack_rabbitmq_client_cert')
     }
 
-  openssl::export::pkcs12 { 'rabbitmq-client':
-    ensure                   => 'present',
-    basedir                  => $ssl_dir,
-    pkey                     => "$ssl_dir/$rabbit_key",
-    cert                     => "$ssl_dir/$rabbit_crt",
-    in_pass                  => "",
-    out_pass                 => "",
-    }
-
   if $configure_origin {
     file { "$ssl_dir/$rabbit_origin_key":
       ensure                 => file,
@@ -117,7 +108,18 @@ class logreceiver::config (
       mode                   => '0644',
       content                => hiera('elk_stack_rabbitmq_origin_cert')
       }
+    }
 
+  openssl::export::pkcs12 { 'rabbitmq-client':
+    ensure                   => 'present',
+    basedir                  => $ssl_dir,
+    pkey                     => "$ssl_dir/$rabbit_key",
+    cert                     => "$ssl_dir/$rabbit_crt",
+    in_pass                  => "",
+    out_pass                 => "",
+    }
+
+  if $configure_origin {
     openssl::export::pkcs12 { 'rabbitmq-origin':
       ensure                 => 'present',
       basedir                => $ssl_dir,
