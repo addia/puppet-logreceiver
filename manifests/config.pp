@@ -35,13 +35,8 @@ class logreceiver::config (
 
   notify { "Creating config files for: ${package_name}": }
 
-  if $configure_origin {
-    $config_input            = "$config_dir/04_logstash-mq-transport.conf"
-    $config_temp             = "logreceiver/04_logstash-mq-transport-conf.erb"
-    } else {
-    $config_input            = "$config_dir/02_logstash-beats-input.conf"
-    $config_temp             = "logreceiver/02_logstash-beats-input-conf.erb"
-    }
+  $config_beats_input        = "$config_dir/02_logstash-beats-input.conf"
+  $config_mq_input           = "$config_dir/04_logstash-mq-transport.conf"
   $config_output             = "$config_dir/31_logstash-mq-output.conf"
 
   file { $config_dir:
@@ -67,12 +62,12 @@ class logreceiver::config (
     notify                   => Service[$service]
     }
 
-  file { $config_input:
+  file { $config_beats_input:
     ensure                   => file,
     owner                    => $user,
     group                    => $group,
     mode                     => '0644',
-    content                  => template($config_temp),
+    content                  => template('logreceiver/02_logstash-beats-input-conf.erb'),
     notify                   => Service[$service]
     }
 
@@ -107,6 +102,17 @@ class logreceiver::config (
       group                  => $group,
       mode                   => '0644',
       content                => hiera('elk_stack_rabbitmq_origin_cert')
+      }
+    }
+
+  if $configure_origin {
+    file { $config_mq_input:
+      ensure                 => file,
+      owner                  => $user,
+      group                  => $group,
+      mode                   => '0644',
+      content                => template('logreceiver/04_logstash-mq-transport-conf.erb'),
+      notify                 => Service[$service]
       }
     }
 
