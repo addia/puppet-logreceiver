@@ -87,8 +87,8 @@ class logreceiver::config (
     content                  => hiera('elk_stack_rabbitmq_client_cert')
     }
 
-  if $::hostname =~ /rmq/ {
-    if $configure_origin {
+  if $::rabbitmq_plugins_done == 0 {
+    if $configure_origin == true {
       file { "$ssl_dir/$rabbit_origin_key":
         ensure               => file,
         owner                => $user,
@@ -107,14 +107,16 @@ class logreceiver::config (
       }
     }
 
-  if $configure_origin {
-    file { $config_mq_input:
-      ensure                 => file,
-      owner                  => $user,
-      group                  => $group,
-      mode                   => '0644',
-      content                => template('logreceiver/04_logstash-mq-transport-conf.erb'),
-      notify                 => Service[$service]
+  if $::rabbitmq_plugins_done == 0 {
+    if $configure_origin == true {
+      file { $config_mq_input:
+        ensure               => file,
+        owner                => $user,
+        group                => $group,
+        mode                 => '0644',
+        content              => template('logreceiver/04_logstash-mq-transport-conf.erb'),
+        notify               => Service[$service]
+        }
       }
     }
 
@@ -127,14 +129,16 @@ class logreceiver::config (
     out_pass                 => "",
     }
 
-  if $configure_origin {
-    openssl::export::pkcs12 { 'rabbitmq-origin':
-      ensure                 => 'present',
-      basedir                => $ssl_dir,
-      pkey                   => "$ssl_dir/$rabbit_origin_key",
-      cert                   => "$ssl_dir/$rabbit_origin_crt",
-      in_pass                => "",
-      out_pass               => "",
+  if $::rabbitmq_plugins_done == 0 {
+    if $configure_origin == true {
+      openssl::export::pkcs12 { 'rabbitmq-origin':
+        ensure               => 'present',
+        basedir              => $ssl_dir,
+        pkey                 => "$ssl_dir/$rabbit_origin_key",
+        cert                 => "$ssl_dir/$rabbit_origin_crt",
+        in_pass              => "",
+        out_pass             => "",
+        }
       }
     }
 
