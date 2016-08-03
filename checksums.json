@@ -3,7 +3,7 @@
    "LICENSE.md": "4a6fa1aa967fea7598f3b57069f970bc",
    "Rakefile": "3044cde52b8cd8508c8400076a66ef11",
    "Vagrantfile": "d6a2a8baa7d550e9318f9f030dd43310",
-   "manifests/config.pp": "2efc52517368567807d4866b6e2722a4",
+   "manifests/config.pp": "4a8f1b21abb698bbe27f3ffbbb1429cd",
    "manifests/accounts.pp": "604ae08709d08211cf63e28ee5c025f8",
    "manifests/install.pp": "70d8f96bf5fc35051c24481d93c1e4f0",
    "manifests/service.pp": "04a994cb010987ec083d91f7a8bde927",

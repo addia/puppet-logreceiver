@@ -87,21 +87,23 @@ class logreceiver::config (
     content                  => hiera('elk_stack_rabbitmq_client_cert')
     }
 
-  if $configure_origin {
-    file { "$ssl_dir/$rabbit_origin_key":
-      ensure                 => file,
-      owner                  => $user,
-      group                  => $group,
-      mode                   => '0644',
-      content                => hiera('elk_stack_rabbitmq_origin_key')
-      }
+  if $::hostname =~ rmq {
+    if $configure_origin {
+      file { "$ssl_dir/$rabbit_origin_key":
+        ensure               => file,
+        owner                => $user,
+        group                => $group,
+        mode                 => '0644',
+        content              => hiera('elk_stack_rabbitmq_origin_key')
+        }
 
-    file { "$ssl_dir/$rabbit_origin_crt":
-      ensure                 => file,
-      owner                  => $user,
-      group                  => $group,
-      mode                   => '0644',
-      content                => hiera('elk_stack_rabbitmq_origin_cert')
+      file { "$ssl_dir/$rabbit_origin_crt":
+        ensure               => file,
+        owner                => $user,
+        group                => $group,
+        mode                 => '0644',
+        content              => hiera('elk_stack_rabbitmq_origin_cert')
+        }
       }
     }
 
