@@ -87,7 +87,7 @@ class logreceiver::config (
     content                  => hiera('elk_stack_rabbitmq_client_cert')
     }
 
-  if $::hostname =~ rmq {
+  if $::hostname =~ /rmq/ {
     if $configure_origin {
       file { "$ssl_dir/$rabbit_origin_key":
         ensure               => file,
