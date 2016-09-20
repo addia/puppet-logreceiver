@@ -33,7 +33,7 @@ class logreceiver::params {
   $rabbit_address          = hiera('elk_stack_rabbitmq_address')
   $rabbit_origin           = hiera('elk_stack_rabbitmq_origin')
   $package_name            = 'logstash'
-  $package_vers            = '2.3.3-1'
+  $package_vers            = '2.3.4-1'
   $repo_version            = '2.3'
 
 }
