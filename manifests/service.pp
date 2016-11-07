@@ -15,7 +15,7 @@ class logreceiver::service (
   $package_name         = $logreceiver::params::package_name
 ) inherits logreceiver::params {
   
-  notify { "Configuring service: ${package_name}": }
+# notify { "Configuring service: ${package_name}": }
 
   file { $systemd_file:
     ensure              => file,

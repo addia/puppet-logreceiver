@@ -33,7 +33,7 @@ class logreceiver::config (
   $package_name              = $logreceiver::params::package_name
 ) inherits logreceiver::params {
 
-  notify { "Creating config files for: ${package_name}": }
+# notify { "Creating config files for: ${package_name}": }
 
   $config_beats_input        = "$config_dir/02_logstash-beats-input.conf"
   $config_mq_input           = "$config_dir/04_logstash-mq-transport.conf"

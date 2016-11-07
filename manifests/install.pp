@@ -16,7 +16,7 @@ class logreceiver::install (
 
   include logreceiver::repo
 
-  notify { "Installing package: ${package_name}": }
+# notify { "Installing package: ${package_name}": }
 
   package { ['java-1.8.0-openjdk', 'java-1.8.0-openjdk-devel'] :
     ensure            => present,

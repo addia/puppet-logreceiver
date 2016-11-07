@@ -15,7 +15,7 @@ class logreceiver::accounts (
   $package_name       = $logreceiver::params::package_name
   ) inherits logreceiver::params {
 
-  notify { "Creating accounts for: ${package_name}": }
+# notify { "Creating accounts for: ${package_name}": }
 
   group {  $group:
     ensure     => present,

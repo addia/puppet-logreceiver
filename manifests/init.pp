@@ -80,7 +80,7 @@ class logreceiver (
 
   ) inherits logreceiver::params {
 
-    notify { "## --->>> Installing and configuring ${package_name}": }
+#   notify { "## --->>> Installing and configuring ${package_name}": }
 
     anchor { 'logreceiver::begin': } ->
     class { '::logreceiver::accounts': } ->

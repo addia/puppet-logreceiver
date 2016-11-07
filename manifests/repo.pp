@@ -15,7 +15,7 @@ class logreceiver::repo (
   $repo_version       = $logreceiver::params::repo_version
 ) inherits logreceiver::params {
 
-  notify { "Creating repo for: ${package_name}": }
+# notify { "Creating repo for: ${package_name}": }
 
   case $::osfamily {
     'RedHat': {
