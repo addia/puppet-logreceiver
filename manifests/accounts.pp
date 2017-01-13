@@ -10,19 +10,21 @@
 # ===========================
 #
 class logreceiver::accounts (
-  $user               = $logreceiver::params::user,
-  $group              = $logreceiver::params::group,
-  $package_name       = $logreceiver::params::package_name
-  ) inherits logreceiver::params {
+  $user         = $logreceiver::params::user,
+  $group        = $logreceiver::params::group,
+  $package_name = $logreceiver::params::package_name
+  ) {
 
-# notify { "Creating accounts for: ${package_name}": }
+  include logreceiver::params
 
-  group {  $group:
-    ensure     => present,
-    gid        => 252
+  # notify { "Creating accounts for: ${package_name}": }
+
+  group { $group:
+    ensure => present,
+    gid    => 252
   }
 
-  user { $user: 
+  user { $user:
     ensure     => present,
     home       => '/var/lib/logstash',
     shell      => '/bin/bash',
